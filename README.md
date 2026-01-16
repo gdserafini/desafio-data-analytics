@@ -1,183 +1,90 @@
-# 📊 Desafio Técnico – Time de Dados  
-**Manchester Investimentos**
+# Análise XYZ
 
-## 🎯 Objetivo do Desafio
+Este projeto tem como objetivo explorar dados de vendas para responder a cinco problemáticas analíticas centrais, utilizando Python e Pandas em um Jupyter Notebook. O foco está em extrair insights de negócio e oportunidades de marketing direcionado a partir de dados demográficos, temporais e de performance de produtos.
 
-Este desafio tem como objetivo avaliar suas habilidades técnicas e analíticas em **dados**, além da sua capacidade de **transformar dados em insights de negócio** e comunicá-los com clareza.
-
-Você irá trabalhar com um conjunto de dados de vendas de uma empresa fictícia (XYZ), simulando um cenário real de análise exploratória, preparação de dados, consultas SQL e visualização.
-
----
-
-## 🏢 Contexto do Negócio
-
-A **empresa XYZ** é uma rede de lojas de varejo especializada em produtos para **casa e jardim**, com atuação em diversas regiões do país. A empresa possui dados históricos de vendas contendo informações sobre:
-
-- Clientes  
-- Produtos e categorias  
-- Datas de compra  
-- Regiões geográficas  
-- Valores e quantidades vendidas  
-
-A liderança quer usar dados para **entender clientes**, **detectar sazonalidade**, **avaliar desempenho por categoria e região** e apoiar decisões estratégicas.
+## Problemas Analisados
+1. Perfil demográfico dos clientes  
+2. Performance por categoria de produto  
+3. Sazonalidade das vendas  
+4. Tendência de vendas por região  
+5. Relação entre idade e categorias compradas
 
 ---
 
-## 📂 Base de Dados
+## Como configurar e rodar o notebook
 
-Você receberá um arquivo **EXCEL** contendo **duas abas**:
+### 1️ Pré-requisitos
+- Python **3.11+
 
-1. **Base de Vendas**  
-   - Informações de clientes, vendas, datas, valores, regiões, produtos etc.
+### 2 Criando o ambiente
+```bash
+python -m venv venv
+```
 
-2. **Dicionário / Categorias de Produtos**  
-   - Mapeamento e descrição correta das categorias  
-   - Esta aba **deve ser utilizada obrigatoriamente** para enriquecer as análises (ex.: corrigir nomes, agrupar categorias, criar hierarquias).
+Ativando o ambiente:
+```bash
+source venv/bin/activate
+```
 
-> ⚠️ Importante: Considere que a aba de dicionário é a “fonte da verdade” para nomes e descrições de categorias.
-
----
-
-## 📌 Perguntas de Negócio (Análises Esperadas)
-
-Você deverá responder, com **análise + visualizações**, às perguntas abaixo:
-
-### 1) Perfil demográfico dos clientes
-- Distribuição de idade (média, mediana, faixas)
-- Distribuição por região (e/ou outras colunas demográficas disponíveis)
-- Identificação de perfis predominantes
-
-### 2) Performance por categoria de produto
-- Categorias mais vendidas e menos vendidas (por **volume** e por **faturamento**)
-- Ticket médio por categoria
-- Pareto (80/20) de categorias por faturamento (se aplicável)
-
-### 3) Sazonalidade
-- Existe relação entre vendas e época do ano?
-- Meses com maior e menor faturamento
-- Comparação trimestre a trimestre (ou mês a mês)
-
-### 4) Tendência de vendas por região
-- Evolução das vendas por região ao longo do tempo
-- Identificação de regiões em crescimento/queda
-- Comparação entre regiões (faturamento, volume, ticket médio)
-
-### 5) Relação entre idade e categorias compradas
-- Existe correlação/associação entre faixa etária e categorias?
-- Quais categorias são mais comuns em cada faixa etária?
-- Recomendações práticas (ex.: segmentação, campanhas, mix de produtos)
+### 3 Instalando dependências
+Instale as dependências:
+```bash
+pip install -r requirements.txt
+```
 
 ---
 
-## 🛠️ Requisitos Técnicos (Obrigatórios)
+## Principais Conclusões
 
-### 🐍 Python (Análise de Dados)
-Você deve utilizar **Python** para:
-- Carregar o Excel
-- Tratar e preparar dados
-- Realizar as análises
-- Gerar visualizações
-
-Bibliotecas esperadas:
-- `pandas`
-- `numpy`
-- visualização: `matplotlib` e/ou `seaborn` (ou equivalente)
-
-### 🧾 SQL (Apenas consultas)
-Você deve entregar um arquivo com **consultas SQL** que responderiam às análises principais.
-
-Regras:
-- **Não é necessário** criar banco de dados, tabelas físicas ou rodar em um SGBD.
-- As consultas podem ser **teóricas**, mas devem ser **corretas e completas**, assumindo que existem tabelas como:
-  - `vendas`
-  - `categorias_produtos` (dicionário)
-
-O que será avaliado:
-- Joins
-- Aggregations (`SUM`, `COUNT`, `AVG`)
-- `GROUP BY`, `ORDER BY`
-- Filtros e condições (`WHERE`, `CASE WHEN`)
-- Janelas (`OVER(PARTITION BY ...)`) como diferencial
-
-### 📊 Power BI (Modelagem + Dashboard)
-Construir um dashboard no **Power BI** com:
-- KPIs principais (ex.: faturamento total, volume total, ticket médio)
-- Gráficos por **tempo**, **região** e **categoria**
-- Segmentações (slicers) úteis
-- Modelagem básica (relacionamento entre vendas e dicionário)
-- Uso de **DAX simples** (ex.: medidas de total, média, variação temporal)
-
-### 🌱 Git (Versionamento)
-- Projeto deve estar em um repositório no **GitHub**
-- Commits com mensagens claras
-- Estrutura organizada de pastas
+### 1️ Perfil demográfico dos clientes
+- A distribuição de idades apresenta maior concentração na faixa central, com menor presença nos extremos (18–24 e 60+).
+- A análise utilizou histograma de idades reais, permitindo uma visão mais granular.
+- Em relação à localização, São Paulo é o estado com maior número de clientes, evidenciado por gráfico de barras.
 
 ---
 
-## 📦 Entregáveis
-
-Seu repositório deve conter:
-
-### 1) Notebook(s) Python
-- `notebooks/`
-  - Carregamento e tratamento
-  - Análise exploratória
-  - Respostas às perguntas com visualizações
-  - Comentários explicando o raciocínio
-
-### 2) Consultas SQL
-- `sql/`
-  - Um arquivo `analises.sql` com:
-    - consultas para perfil demográfico
-    - ranking de categorias
-    - sazonalidade
-    - tendência por região
-    - relação idade x categoria
-
-> Dica: comente cada bloco de query indicando qual pergunta está respondendo.
-
-### 3) Power BI
-- `powerbi/`
-  - Arquivo `.pbix`
-  - Se desejar, inclua prints do dashboard em `assets/`
-
-### 4) README.md (Obrigatório)
-Deve conter:
-- Resumo do problema e abordagem
-- Como executar os notebooks
-- Principais insights e recomendações
-- Limitações da base e da análise
-- Próximos passos sugeridos (ex.: dados que faltam, melhorias)
+### 2️ Performance por categoria de produto
+- Gráficos de barras foram utilizados para comparar faturamento entre categorias.
+- Jardinagem lidera o faturamento, representando cerca de 30% do total.
+- Utilidades Domésticas aparece logo em seguida, com ticket médio proporcionalmente elevado.
+- O ticket médio acompanha o padrão de faturamento por categoria.
 
 ---
 
-## 🧠 Critérios de Avaliação
-
-- Qualidade e consistência das análises
-- Organização e legibilidade do código
-- Clareza da comunicação (README + storytelling no dashboard)
-- Capacidade de transformar dados em decisões
-- Qualidade e correção das consultas SQL
-- Boa prática de versionamento (Git)
+### 3️ Sazonalidade
+- Foi analisada a variação mensal das vendas ao longo de 5 anos, usando gráficos de linhas sobrepostas.
+- Observa-se concentração de vendas no início e no fim do ano.
+- Há uma queda acentuada entre março e abril e crescimento gradual entre agosto e setembro.
+- A comparação entre o último quadrimestre de 2024 e 2025 mostrou pouca variação significativa.
 
 ---
 
-## ⭐ Diferenciais (Opcional)
-
-- Medidas no Power BI de variação (MoM/YoY), crescimento acumulado, ranking dinâmico
-- Segmentação avançada por faixa etária
-- Pareto (80/20) e análise de concentração por categoria/região
-- Tratamento robusto de dados faltantes/erros e validações
+### 4️ Tendência de vendas por região
+- A evolução mensal das vendas por estado foi analisada com gráficos de linha.
+- O faturamento total por região foi comparado com tabelas resumo e gráficos de barras.
+- SP se destaca tanto em volume quanto em faturamento e apresenta maior variação sazonal em comparação a outros estados.
 
 ---
 
-## 📤 Instruções de Entrega
-
-1. Faça um **fork** deste projeto no GitHub  
-2. Desenvolva a solução no seu repositório  
-3. Envie o **link do repositório** por e-mail ao seu contato na Manchester Investimentos  
-4. Enviar com cópia para: `rh@manchesterinvest.com.br`
+### 5️ Relação entre idade e categorias compradas
+- A análise foi feita com um mapa de calor, relacionando faixa etária e categorias.
+- A categoria Mangueiras se destaca fortemente na faixa 35–44 anos.
 
 ---
 
-Boa sorte!
+## Insights para Campanhas de Marketing Direcionadas
+
+- Segmentação etária: campanhas específicas para a faixa 35–44 anos focadas em produtos ex: Mangueiras.
+- Aproveitamento da sazonalidade: antecipar campanhas promocionais antes dos picos de início e fim de ano.
+- Foco regional: ações mais agressivas em SP, onde há maior volume, faturamento e resposta sazonal.
+- Combinar produtos de alto ticket médio em categorias líderes para aumentar o faturamento por cliente.
+- Campanhas de retenção em períodos de queda (março–abril), com cupons promocionais.
+
+---
+
+## Limitações da base e próximos passos
+A base de dados possui apenas 7 colunas, o que limita análises mais profundas de comportamento do cliente (ex.: recorrência, fidelização ou jornada de compra).
+
+Existência de valores ausentes em campos relevantes como CLIENTE, IDADE, ESTADO e PRODUTO. Apesar de serem poucos e tratados adequadamente, esse preenchimento pode introduzir viés estatístico, especialmente em análises demográficas.
+
+Um próximo passo interessante seria o enriquecimentos dos dados visando análises mais aprofundadas das vendas tanto do ponto de vista do cliente como do ponto de vista do produtos, ainda podendo aplicar modelos de machine learning para a predições de vendas no próximo ano, por exemplo.
